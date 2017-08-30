@@ -9,26 +9,23 @@
 
 	// Load letter json
 	var items = $.getJSON(alphabet + ".json");
-	console.log(items);
-
+	
 	// Render
+	var td_template = _.template('<td style="width: 164px; height: 12.2px; text-align: center;"><h3>{title}</h3><img style="display: block; margin-left: auto; margin-right: auto;" src="{url}" alt="" width="108" height="150" /></td>');
+	var trElement = $("#tablet body").append("<tr></tr>");
+	
+	for (var i = 0; i < items.length; i++)
+	{
+		if (i % numColumns == 0)
+			trElement = $("#table tbody").append("<tr></tr>");
+
+		$(trElement).append(td_template(items[i]));
+	}
 
 </script>
 
 <h1 style="text-align: center;">A/a</h1>
-<table style="height: 633px; margin-left: auto; margin-right: auto;" width="684">
+<table style="height: 633px; margin-left: auto; margin-right: auto;" width="684" id="table">
 	<tbody>
-		<tr style="height: 12.2px;">
-			<td style="width: 164px; height: 12.2px; text-align: center;">
-				<h3 id=""></h3>
-				<img style="display: block; margin-left: auto; margin-right: auto;" src="" alt="" width="108" height="150" />
-			</td>
-		</tr>
-		<tr style="height: 114px;">
-		</tr>
-		<tr style="height: 114px;">
-		</tr>
-		<tr style="height: 114px;">
-		</tr>
 	</tbody>
 </table>
