@@ -8,7 +8,7 @@
 	var numColumns = url.searchParams.get("cols") || 4;
 
 	// Load letter json
-	var items = $.getJSON("/" + alphabet + ".json");
+	var items = $.getJSON(alphabet + ".json");
 	console.log(items);
 
 	// Render
